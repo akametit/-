@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article>
+        <h2 id="js6">Емоджі з кодом</h2>
+        <p>Введить номера емоджі які ви хочете вівести</p>
+
+        <form name="emodgy" action="javascript:СalculateSmile()">
+            початковій номер <input name="n1" type="number" value="128512" size="4">
+            кінцевий номер <input  name="n2" type="number" value="128591" size="4">
+            <br>
+            <input class="myButton" type="submit" value="Вивести">
+            <input class="myButton" type="reset" name="reset" value="Скинути">
+        </form>
+
+        <p id="smileResult"></p>
+    </article>
+
+    <script>
+        function СalculateSmile(){
+            let min = parseInt(document.emodgy.n1.value)
+            let max = parseInt(document.emodgy.n2.value)
+
+            if (isNaN(min) || isNaN(max)){
+                document.getElementById('smileResult').innerHTML = `Введіть номера емоджі`
+                return
+            }
+            else if ((max - min) < 0) {
+                let num = min
+                min = max
+                max = num
+            }
+
+            if ((max - min) > 500) {
+                document.getElementById('smileResult').innerHTML = `для коректної роботи введіть менший діапазан`
+            } 
+            else {
+                let stringi = ""
+                let counter = 0
+                for (let i = min; i <= max; i++) {
+                    counter++
+                    stringi = `${stringi} &#${i}; - &amp#${i}`
+                    if ((counter % 4) == 0) {
+                        stringi = `${stringi} <br>`
+                    }
+                }
+                document.getElementById('smileResult').innerHTML = stringi
+            }
+        }
+    </script>
+</body>
+</html>

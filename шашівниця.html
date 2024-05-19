@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article>
+        <h2 id="js9">Шашівниця</h2>
+        <canvas id="myCanvas2" width="600" height="600" style="border:5px solid #000000;"> Your browser does not support the HTML5 canvas tag.</canvas>
+    </article>
+
+    <script>
+        let cxt2 = document.getElementById("myCanvas2").getContext("2d")
+        cxt2.fillRect(0, 0, 600, 600)
+
+        for(let y = 0; y < 8; y++) {
+            for(let x = 0; x < 8; x++) {
+                if ((y + x) % 2 != 0) {
+                    cxt2.clearRect(75 * x , 75 * y, 75, 75)
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

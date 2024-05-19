@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS11</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(255, 17, 0);
+            font-size: 27px;
+        }
+    </style>
+    <script>
+    // let x = prompt("Введіть будь-яке число:", "-3.14");
+    // while(isNaN(x)){
+    //     x = prompt("Введіть будь-яке число:", "-3.14");
+    // }
+    //   alert( "Ви ввели число  "+x );
+    
+    // let a = +prompt("Enter number from 0 to 1","0.1");
+    // let b = +prompt("Enter number from 0 to 1","0.2");
+    // if(a<1 && a>0 && b<1 && b>0){
+    //      let result = a + b; 
+    //     alert( +result.toFixed(1) );
+    // }else{
+    //     alert("it's not number neaded");
+    // }
+
+    let min = (Math.floor(10+Math.random()*(99+1-10)))
+    let max = (Math.floor(10+Math.random()*(99+1-10)))
+    function more(min,max){
+    if (min > max){
+        return max=min
+    }else {
+        return min=max
+    }
+}
+    alert(`${min}-${max}`)
+    for(i=0;i!=3;i++){
+    document.writeln(Math.floor(min+Math.random()*(max+1-min)))
+}
+
+// let min= +prompt("Введіть рамки діапазону","1")
+// let max = +prompt("Введіть рамки діапазону","100")
+// let count = 0
+// let sum = Math.floor(min+Math.random()*(max+1-min))
+// let num;
+// function more(num1,num2){
+//     if (min > max){
+//         return min=max
+//     }else {
+//         return max=min
+//     }
+// }
+// do {
+//   num = prompt(`Вгадайте число від ${min} до ${max}`, 0);
+//   count++
+//   if (num===null){
+// 	alert("До побачення!")
+// }else if (num < sum){
+// alert ("Замало")
+// }else if (num > sum) {
+//     alert("Забагато")
+// }else if (num==sum){
+//     alert(`Ви вгадали! Число = ${sum}. За ${count} спроб`)
+// }else{
+//     alert("Ви ввели не число")
+// }
+// } while (num != sum && num!=null);
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article>
+        <h2 id="js 10">Обчислення факторіалу числа n</h2>
+    
+        <label for="factorialNum">Введіть число (n):</label>
+        <input type="number" id="factorialNum" size="4">
+        <button class="myButton" onclick="СalculateFactorial()">Обчислити</button>
+        
+        <p id="factorialResult"></p>
+    </article>
+    
+    <script>   
+        function СalculateFactorial() {
+            const num = parseInt(document.getElementById('factorialNum').value);
+    
+            let factorial = 1;
+    
+            if (isNaN(num)){
+                document.getElementById('factorialResult').innerHTML = `Введить число`;
+                return
+            }
+            else if(num < 0){
+                document.getElementById('factorialResult').innerHTML = `Введить число більше нуля`;
+                return
+            }
+    
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+            document.getElementById('factorialResult').innerHTML = `Факторіал числа ${num} = ${factorial}`;
+        }
+    </script>
+</body>
+</html>

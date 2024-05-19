@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article>
+        <h2 id="js12">Число в степені</h2>
+    
+        <form name="stepin" action="javascript:СalculateSteprn()">
+            a <input name="a" type="number" size="4">
+            b <input  name="b" type="number" size="4">
+            <br>
+            <input class="myButton" type="submit" value="Розрахувати">
+        </form>
+    
+        <p id="stepinResult">a<sup>b</sup> = ..</p>
+    </article>
+    
+    <script>
+        function СalculateSteprn(){
+            let a = document.stepin.a.value;
+            let b = document.stepin.b.value;
+            let dobytok = 1
+            let result = document.getElementById("stepinResult");
+    
+            if (a === "" || b === "" || isNaN(a) || isNaN(b)){
+                result.innerHTML = `Введіть числа 'a' та 'b'`;
+                return
+            }
+            else if(b < 0){
+                result.innerHTML = `Введить 'b' більше нуля`;
+                return
+            }
+            else if(b == 0){
+                result.innerHTML = `${a}<sup>${b}</sup> = 1`;
+                return
+            }
+    
+            for (let i=b; i>0; i--) {
+                dobytok *= a
+            }
+    
+            result.innerHTML = `${a}<sup>${b}</sup> = ${dobytok}`;
+        }
+    </script>
+    
+</body>
+</html>

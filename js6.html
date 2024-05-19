@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+  let userLogin = prompt('Введіть ваш логін', '');
+if (userLogin == 'User') {
+  let userPass = prompt('Введіть ваш пароль', '');
+  if (userPass  == 'password')  {
+    alert( 'Ласкаво просимо!' );
+  } else if (userPass === null) { 
+    alert( 'Введення скасовано' );
+  } else {
+    alert( 'Пароль не вірний' );
+  }
+} else if (userLogin === null) { 
+  alert( 'Введення скасовано' );
+} else {
+  alert( 'Логін не вірний' );
+}
+        
+              
+          </script>
+        </body>
+        </html>
+</body>
+</html>

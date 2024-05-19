@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+
+    <h2 id="17">Пошук числа в діапазоні</h2>
+  <form id="searchForm">
+    <label for="number">Введіть число:</label><br>
+    <input type="number" id="number" name="number"><br>
+    <label for="minRange">Мінімальний діапазон:</label><br>
+    <input type="number" id="minRange" name="minRange"><br>
+    <label for="maxRange">Максимальний діапазон:</label><br>
+    <input type="number" id="maxRange" name="maxRange"><br>
+    <button type="button" onclick="searchNumber()">Знайти число</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    function searchNumber() {
+      var number = parseInt(document.getElementById("number").value);
+      var minRange = parseInt(document.getElementById("minRange").value);
+      var maxRange = parseInt(document.getElementById("maxRange").value);
+      var outputDiv = document.getElementById("output");
+      
+      if (isNaN(number) || isNaN(minRange) || isNaN(maxRange)) {
+        outputDiv.innerHTML = "Будь ласка, введіть числа у всі поля.";
+        return;
+      }
+
+      if (number >= minRange && number <= maxRange) {
+        outputDiv.innerHTML = "Число " + number + " належить до заданого діапазону.";
+      } else {
+        outputDiv.innerHTML = "Число " + number + " не належить до заданого діапазону.";
+      }
+    }
+  </script>
+
+</body>
+</html>

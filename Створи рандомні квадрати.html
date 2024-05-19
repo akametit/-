@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    <article>
+        <h2 id="js8">Створи рандомні квадрати</h2>
+
+        <label for="squareId">Введіть кількість квадратів: </label>
+        <input type="number" id="squareId" size="4">
+        <button class="myButton" onclick="AddSquares()">Створити</button>
+
+        <p id="errorSquareId"></p>
+
+        <canvas id="myCanvas" width="800" height="400"> Your browser does not support the HTML5 canvas tag.</canvas>
+    </article>
+
+    <script>
+        function AddSquares(){
+            const number = parseInt(document.getElementById('squareId').value);
+            let resultCompliment = document.getElementById('errorSquareId')
+            
+            if (isNaN(number)) {
+                resultCompliment.innerHTML = `Введіть кількість квадратів`
+                return
+            }
+            else {
+                resultCompliment.innerHTML = ``
+            }
+
+            let cxt = document.getElementById("myCanvas").getContext("2d")
+            let ranSize
+            let ranX
+            let ranY
+            let color = ["yellow", "red", "green", "orange", "blue"]
+            let colorran
+            cxt.clearRect(0, 0, 150, 75);
+            cxt.strokeStyle = "black"
+            for(let i = 0; i < number; i++) {
+                colorran = Math.floor(Math.random ()*color.length)
+                cxt.fillStyle = color[colorran]
+                ranSize = Math.floor(Math.random ()*100+50)
+                ranX = Math.floor(Math.random ()*650)
+                ranY = Math.floor(Math.random ()*250)
+                cxt.fillRect(ranX, ranY, ranSize, ranSize )
+                cxt.strokeRect(ranX, ranY, ranSize, ranSize )
+            } 
+        }
+    </script>
+</body>
+</html>

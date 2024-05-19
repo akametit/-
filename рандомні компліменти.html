@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article id="complimentsResult">
+        <h2 id="js7">Створи рандомні компліменти</h2>
+
+        <label for="complimentsId">Введіть кількість комплиментів: </label>
+        <input type="number" id="complimentsId" size="25">
+        <button class="myButton" onclick="AddCompliments()">Створити</button>
+
+        <p id="errorId"></p>
+    </article>
+
+    <script>
+        const complimentlist = document.getElementById('complimentsResult').innerHTML
+        function AddCompliments(){
+            const number = parseInt(document.getElementById('complimentsId').value);
+            let resultCompliment = document.getElementById('complimentsResult')
+            let tmpStr = ""
+            
+            if (isNaN(number)) {
+                document.getElementById('errorId').innerHTML = `Введіть число`
+                return
+            }
+            else {
+                document.getElementById('errorId').innerHTML = ``
+            }
+
+            let compliments = ["cool", "clever", "pretty", "funny", "cute", "cheerful", "awesome", "amazing", "incredible"]
+            let animals = ["fox","pig", "capybara", "duck", "bug", "eagle", "mouse", "cow"]
+            let colors = ["yellow", "red", "green", "orange", "grey",]
+            
+            for (let i = 1; i <= number; i++) {
+                ran1 = Math.floor (Math.random ()*colors.length)
+                ran2 = Math.floor (Math.random ()*compliments.length)
+                ran3 = Math.floor (Math.random ()*animals.length)
+
+                tmpStr +=  `<p style="color: ${colors[ran1]}";>${i})  you are so ${compliments[ran2]} as a ${animals[ran3]} <br></p>`;
+            }
+            resultCompliment.innerHTML = complimentlist + tmpStr
+        }
+    </script>
+</body>
+</html>

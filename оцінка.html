@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    <article>
+        <h2 id="js14">Напиші оцінку и дізнайся свій рівень</h2>
+    
+        <p for="gradeMy">Яку оцінку ви отримали?</p>
+        <input type="number" id="gradeMy">
+        <button class="myButton" onclick="CheckinGrade()">Перевірити</button>
+    
+        <p id="gradeResult"></p>
+    </article>
+    
+     <script>   
+        function CheckinGrade() {
+            const grade = parseInt(document.getElementById('gradeMy').value)
+    
+            if (isNaN(grade)){
+                document.getElementById('gradeResult').innerHTML = `Введіть свою оцінку!`
+            }
+            else if (grade > 12) {
+                document.getElementById('gradeResult').innerHTML = `Оцінка не може бути більше 12.`
+            }
+            else if (grade < 1) {
+                document.getElementById('gradeResult').innerHTML = `Оцінка не може бути менше 1.`
+            }
+            else if (grade < 4) {
+                document.getElementById('gradeResult').innerHTML = `Хто тебе сюди впустив.`
+            }
+            else if (grade < 7) {
+                document.getElementById('gradeResult').innerHTML = `Низький рівень знань.`
+            }
+            else if (grade < 10) {
+                document.getElementById('gradeResult').innerHTML = `Середній рівень знань.`
+            }
+            else if (grade < 13) {
+                document.getElementById('gradeResult').innerHTML = `Молодець. Високий рівень знань.`
+            }
+        }
+    </script>
+</body>
+</html>

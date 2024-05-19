@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article>
+        <h2 id="js2">Політ в космос</h2>
+
+        <p for="year1961">В якому році вперше з космосу повернулася людина живою?</p>
+        <input type="number" id="year1961">
+        <button class="myButton" onclick="SpaceYear()">Перевірити</button>
+
+        <p id="yearResult"></p>
+    </article>
+
+     <script>   
+        function SpaceYear() {
+            const spaceYear = parseInt(document.getElementById('year1961').value)
+
+            if (isNaN(spaceYear)){
+                document.getElementById('yearResult').innerHTML = `Введіть рік!`
+            }
+            else if (spaceYear < 1961) {
+                document.getElementById('yearResult').innerHTML = `Та ні, це щось дуже рано!`
+            }
+            else if (spaceYear > 1961) {
+                document.getElementById('yearResult').innerHTML = `О ні, в цей час вже багато хто повернувся!`
+            }
+            else if (spaceYear == 1961) {
+                document.getElementById('yearResult').innerHTML = `Так, Ваша відповідь правильна!`
+            }
+        }
+    </script>
+</body>
+</html>

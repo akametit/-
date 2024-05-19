@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+
+    <h1 id="16">Малювання фігур на Canvas</h1>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+    
+    
+        ctx.beginPath();
+        ctx.moveTo(100, 100); 
+        ctx.lineTo(200, 100); 
+        ctx.lineTo(150, 200); 
+        ctx.closePath();
+        ctx.stroke(); 
+    
+        ctx.beginPath();
+        ctx.arc(300, 150, 50, 0, 2 * Math.PI); 
+        ctx.stroke(); 
+    </script>
+</body>
+</html>

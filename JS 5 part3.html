@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = +prompt("Введіть число a")
+        let b = +prompt("Введіть число b")
+        let c = +prompt("Введіть число c")
+        let p=(a+b+c)/2
+        let S=Math.sqrt(p*(p-a)*(p-b)*(p-c));
+        if (S<=0){
+        alert("Неправильно")}
+    else {
+     alert(`Площа трикутника зі сторонами c b=${b} c=${c} дорівнює ${S}`)}
+        </script>
+</body>
+</html>

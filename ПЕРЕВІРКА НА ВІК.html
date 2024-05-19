@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article>
+        <h2 id="js4">Перевірка на вік</h2>
+
+        <p for="yearMy">Введіть свій вік</p>
+        <input type="number" id="yearMy">
+        <button class="myButton" onclick="CheckinYear()">Перевірити</button>
+
+        <p id="myYearResult"></p>
+    </article>
+
+     <script>   
+        function CheckinYear() {
+            const year = parseInt(document.getElementById('yearMy').value)
+
+            if (isNaN(year)){
+                document.getElementById('myYearResult').innerHTML = `Введіть свій вік!`
+            }
+            else if (year < 18) {
+                document.getElementById('myYearResult').innerHTML = `Прохід заборонено. Прийдіть колі вам буде 18 років.`
+            }
+            else {
+                document.getElementById('myYearResult').innerHTML = `Прохід дозволено.`
+            }
+        }
+    </script>
+</body>
+</html>

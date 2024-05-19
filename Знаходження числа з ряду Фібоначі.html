@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    <article>
+        <h2 id="js11">Знаходження числа з ряду Фібоначі</h2>
+    
+        <label for="fibonachilNum">Введіть номер числа з ряду Фібоначі:</label>
+        <input type="number" id="fibonachilNum" size="4">
+        <button class="myButton" onclick="СalculateFibonachi()">Знайти</button>
+    
+        <p id="fibonachiResult"></p>
+    </article>
+    
+    <script>   
+        function fibonachiView(stringi,num,calcFibonachi) {
+            return `${stringi}${num}-й елемент ряду Фібоначі становить ${calcFibonachi}<br>`;
+        }
+    
+        function СalculateFibonachi() {
+            const num = parseInt(document.getElementById('fibonachilNum').value);
+    
+            let fibonachi = 0
+            let calcFibonachi = 1;
+            let stringi = ""
+    
+            if (isNaN(num)){
+                document.getElementById('fibonachiResult').innerHTML = `Введить число`;
+                return
+            }
+            else if(num < 0){
+                document.getElementById('fibonachiResult').innerHTML = `Введить число більше нуля`;
+                return
+            }
+            else if(num >= 0){
+                stringi = fibonachiView(stringi,0,0)
+            }
+            if(num >= 1){
+                stringi = fibonachiView(stringi,1,1)
+            }
+            if(num > 1){
+                for (let i = 1; num != i; i++) {
+                    let tmp = calcFibonachi
+                    calcFibonachi = calcFibonachi + fibonachi
+                    fibonachi = tmp
+                    stringi = fibonachiView(stringi,i+1,calcFibonachi)
+                }
+            }
+    
+            document.getElementById('fibonachiResult').innerHTML = stringi
+        }
+    </script>
+</body>
+</html>

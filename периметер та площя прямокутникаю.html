@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://ucarecdn.com/8e2b6e8a-bbd1-44c7-8561-f1f2ebf75eb1/-/scale_crop/1300x600/center');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <article>
+        <h2 id="js1">Периметр та площа прямокутника</h2>
+    
+        <label for="sizeA1">Сторона 'a': </label>
+        <input type="number" id="sizeA1">
+        <label for="sizeB1">Сторона 'b': </label>
+        <input type="number" id="sizeB1">
+    
+        <button class="myButton" onclick="CalculaterRectangle()">Обчислити</button>
+    
+        <p id="perimeterResult">Периметр прямокутника:</p>
+        <p id="squareResult">Площа прямокутника:</p>
+    </article>
+    
+     <script>   
+        function CalculaterRectangle() {
+        const a = parseInt(document.getElementById('sizeA1').value)
+        const b = parseInt(document.getElementById('sizeB1').value)
+    
+        if (isNaN(a) || isNaN(b) || (a == 0) || (b == 0)) {
+            document.getElementById('perimeterResult').innerHTML = `Введіть довжини сторін 'a' та 'b'`
+            document.getElementById('squareResult').innerHTML = ``
+            return
+        }
+        else if((a < 0) || (b < 0)){
+            document.getElementById('perimeterResult').innerHTML = `Довжина не може бути відемною`
+            document.getElementById('squareResult').innerHTML = ``
+            return
+        }
+    
+        let Per = 2*(a+b)
+        let Squar = a*b
+    
+        document.getElementById('perimeterResult').innerHTML = `Периметр прямокутника: ${Per}`
+        document.getElementById('squareResult').innerHTML = `Площа прямокутника: ${Squar}`
+        }
+    </script>
+    
+</body>
+</html>

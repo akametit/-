@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function analyzeNumber() {
+            let inputNumber = prompt("Введіть ціле число:");
+            
+            if (!isNaN(inputNumber)) {
+                let digitsCount = inputNumber.length;
+                let digitsArray = inputNumber.split("");
+                
+                console.log("Кількість цифр у числі:", digitsCount);
+                console.log("Цифри числа:", digitsArray.join(" "));
+                
+                let sumOfDigits = digitsArray.reduce((acc, curr) => acc + parseInt(curr), 0);
+                console.log("Сума цифр у числі:", sumOfDigits);
+                
+                let evenCount = 0;
+                let oddCount = 0;
+                digitsArray.forEach(digit => {
+                    if (parseInt(digit) % 2 === 0) {
+                        evenCount++;
+                    } else {
+                        oddCount++;
+                    }
+                });
+                console.log("Кількість парних цифр:", evenCount);
+                console.log("Кількість непарних цифр:", oddCount);
+            } else {
+                console.log("Введено не число. Будь ласка, спробуйте ще раз.");
+         }
+        }
+        
+        analyzeNumber();
+        
+    </script>
+</body>
+</html>
